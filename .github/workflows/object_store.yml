@@ -43,7 +43,7 @@ jobs:
       run:
         working-directory: object_store
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Setup Rust toolchain
         uses: ./.github/actions/setup-builder
       - name: Setup Clippy
@@ -81,7 +81,7 @@ jobs:
     env:
       RUSTDOCFLAGS: "-Dwarnings"
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Run cargo doc
         run: cargo doc --document-private-items --no-deps --workspace --all-features
 
@@ -120,7 +120,7 @@ jobs:
       GOOGLE_SERVICE_ACCOUNT: "/tmp/gcs.json"
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       # We are forced to use docker commands instead of service containers as we need to override the entrypoints
       # which is currently not supported - https://github.com/actions/runner/discussions/1872
@@ -193,7 +193,7 @@ jobs:
       run:
         working-directory: object_store
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           submodules: true
       - name: Setup Rust toolchain
@@ -212,7 +212,7 @@ jobs:
       run:
         working-directory: object_store
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           submodules: true
       - name: Run LocalFileSystem tests
